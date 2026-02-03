@@ -6,7 +6,7 @@ const App = () => {
   const [notes, setnotes] = useState([])
 
   function fetchNotes() {
-    axios.get("http://localhost:3000/api/notes")
+    axios.get("https://backend-2-uola.onrender.com/api/notes")
       .then((res) => {
         setnotes(res.data.notes)
       })
@@ -28,7 +28,7 @@ const App = () => {
     const { title, description } = e.target.elements
 
 
-    axios.post("http://localhost:3000/api/note",
+    axios.post("https://backend-2-uola.onrender.com/api/note",
       {
         title: title.value,
         description: description.value
@@ -44,7 +44,7 @@ const App = () => {
 
   function deleteHandler(id) {
 
-    axios.delete(`http://localhost:3000/api/note/${id}`)
+    axios.delete(`https://backend-2-uola.onrender.com/api/note/${id}`)
       .then(res => {
         console.log(res.data);
         fetchNotes()
@@ -54,7 +54,7 @@ const App = () => {
 
   function saveUpdate(id) {
 
-    axios.patch(`http://localhost:3000/api/note/${id}`,{
+    axios.patch(`https://backend-2-uola.onrender.com/api/note/${id}`,{
       description:editDesc
     })
       .then(() => {
